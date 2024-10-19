@@ -1,0 +1,50 @@
+<div class="min-h-screen  flex items-center justify-center">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-3xl">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Formulario -->
+            <div class="w-full lg:w-1/2 mb-6 lg:mb-0">
+                <h2 class="text-xl font-bold text-gray-700 mb-5">Datos Personales</h2>
+                <form id="datos-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                    <label class="block mb-2 text-sm text-gray-600">Nombre</label>
+                    <input formControlName="nombre" id="nombre" type="text" class="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Nombre">
+    
+                    <label class="block mb-2 text-sm text-gray-600">Apaterno</label>
+                    <input id="apaterno" type="text" formControlName="apaterno" class="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Apaterno">
+    
+                    <label class="block mb-2 text-sm text-gray-600">Amaterno</label>
+                    <input id="amaterno" type="text" formControlName="amaterno" class="mb-4 p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Amaterno">
+    
+                    <h3 class="mt-6 text-md text-gray-700">Fecha de nacimiento</h3>
+                    <div class="flex space-x-2 mt-2">
+                        <input id="dia" type="text" formControlName="nacimiento_dia" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Día">
+                        <input id="mes" type="text" formControlName="nacimiento_mes" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Mes">
+                        <input id="anio" type="text" formControlName="nacimiento_anio" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Año">
+                    </div>
+    
+                    <h3 class="mt-6 text-md text-gray-700">Sexo</h3>
+                    <div class="flex space-x-6 mt-2">
+                        <label class="inline-flex items-center">
+                            <input id="sexo-masculino" type="radio" formControlName="sexo" class="form-radio text-purple-500 focus:ring-purple-500" value="Masculino">
+                            <span class="ml-2 text-gray-700">Masculino</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input id="sexo-femenino" type="radio" formControlName="sexo" class="form-radio text-purple-500 focus:ring-purple-500" value="Femenino">
+                            <span class="ml-2 text-gray-700">Femenino</span>
+                        </label>
+                    </div>
+    
+                    <button type="submit" (click)="buscar_zodiaco()" class="mt-8 p-3 w-full bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition duration-300">Imprimir</button>
+                </form>
+            </div>
+    
+            <!-- Resultados -->
+            <div id="resultado" class="w-full lg:w-1/2 lg:pl-8">
+                <p class="text-lg mb-4">Hola <span id="nombre-completo" class="italic font-bold">{{zodiaco.nombre}} {{zodiaco.apaterno}} {{zodiaco.amaterno}}</span></p>
+                <p class="mb-4">Tienes <span id="edad" class="font-bold">{{edad}}</span> años</p>
+                <p class="mb-4">Tu signo zodiacal es <span id="signo-zodiaco" class="font-bold">{{signo}}</span></p>
+                <img class="rounded-full shadow-lg" src="img/zodiacos/{{img}}" alt="Signo Zodiacal" />
+            </div>
+        </div>
+    </div>
+</div>
+
